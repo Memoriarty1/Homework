@@ -1,7 +1,20 @@
-//робочий вариант 4 ч утра(после появления ES5 в котором добавили class)
-debugger
+
 class SuperMath {
     constructor() {
+    }
+    method() {
+        let methods = {
+            '/': (this.x / this.y),
+            '*': (this.x * this.y),
+            '+': (this.x + this.y),
+            '-': (this.x - this.y),
+            '%': (this.x % this.y)
+        }
+        for(let key in methods) {
+            if(this.znak == key){
+               return console.log( methods[key])
+            }
+        }
     }
     input() {
         obj = {
@@ -15,42 +28,10 @@ class SuperMath {
         this.x = obj.x;
         this.y = obj.y;
         this.znak = obj.znak;
-        switch (this.znak) {
-            case '/':
-                if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x / this.y}`);
-                } else {
-                    this.input(this);
-                }
-                break
-            case '+':
-                if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x + this.y}`);
-                } else {
-                    this.input(this);
-                }
-                break
-            case '-':
-                if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x - this.y}`);
-                } else {
-                    this.input(this);
-                }
-                break
-            case '*':
-                if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x * this.y}`);
-                } else {
-                    this.input(this);
-                }
-                break
-            case '%':
-                if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x % this.y}`);
-                } else {
-                    this.input(this);
-                }
-                break
+        if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
+            this.method(this);
+        }else{
+            this.input(this);
         }
     }
 }
@@ -59,6 +40,6 @@ obj = {
     y: parseInt(prompt('Укажите второе число ')),
     znak: prompt('Укажите действие')
 };
-// obj = {};
+
 const p = new SuperMath();
 p.check(obj);
