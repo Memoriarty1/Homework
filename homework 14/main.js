@@ -1,17 +1,14 @@
 //робочий вариант 4 ч утра(после появления ES5 в котором добавили class)
+debugger
 class SuperMath {
     constructor() {
-
     }
-    input(obj) {
-        // obj = {
-        //     x: parseInt(prompt('Укажите первое число ')),
-        //     y: parseInt(prompt('Укажите второе число ')),
-        //     znak: prompt('Укажите действие')
-        // };
-        obj.x = parseInt(prompt('Укажите первое число '))
-        obj.y= parseInt(prompt('Укажите первое число '))
-        obj.znak = prompt('Укажите действие')
+    input() {
+        obj = {
+            x: parseInt(prompt('Укажите первое число ')),
+            y: parseInt(prompt('Укажите второе число ')),
+            znak: prompt('Укажите действие')
+        };
         this.check(this);
     }
     check() {
