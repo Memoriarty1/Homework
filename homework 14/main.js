@@ -4,7 +4,11 @@ class SuperMath {
 
     }
     input() {
-        obj = { x: parseInt(prompt('Укажите первое число ')), y: parseInt(prompt('Укажите второе число ')), znak: prompt('Укажите действие') };
+        obj = {
+            x: parseInt(prompt('Укажите первое число ')),
+            y: parseInt(prompt('Укажите второе число ')),
+            znak: prompt('Укажите действие')
+        };
         this.check(obj);
     }
     check() {
@@ -50,7 +54,11 @@ class SuperMath {
         }
     }
 }
-obj = { x: parseInt(prompt('Укажите первое число ')), y: parseInt(prompt('Укажите второе число ')), znak: prompt('Укажите действие') };
+obj = {
+    x: parseInt(prompt('Укажите первое число ')),
+    y: parseInt(prompt('Укажите второе число ')),
+    znak: prompt('Укажите действие')
+};
 // obj = {};
 const p = new SuperMath();
 p.check(obj);
