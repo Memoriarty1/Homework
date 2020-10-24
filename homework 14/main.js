@@ -14,38 +14,37 @@ class SuperMath {
         switch (this.znak) {
             case '/':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x / this.y}`)
+                    console.log(`${this.x / this.y}`);
                 } else {
-                    this.input()
+                    this.input();
                 }
                 break
             case '+':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x + this.y}`)
+                    console.log(`${this.x + this.y}`);
                 } else {
-                    this.input()
+                    this.input();
                 }
                 break
             case '-':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x - this.y}`)
+                    console.log(`${this.x - this.y}`);
                 } else {
-                    this.input()
+                    this.input();
                 }
-
                 break
             case '*':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x * this.y}`)
+                    console.log(`${this.x * this.y}`);
                 } else {
-                    this.input()
+                    this.input();
                 }
                 break
             case '%':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
-                    console.log(`${this.x % this.y}`)
+                    console.log(`${this.x % this.y}`);
                 } else {
-                    this.input()
+                    this.input();
                 }
                 break
         }
