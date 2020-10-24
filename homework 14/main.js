@@ -3,13 +3,16 @@ class SuperMath {
     constructor() {
 
     }
-    input() {
-        obj = {
-            x: parseInt(prompt('Укажите первое число ')),
-            y: parseInt(prompt('Укажите второе число ')),
-            znak: prompt('Укажите действие')
-        };
-        this.check(obj);
+    input(obj) {
+        // obj = {
+        //     x: parseInt(prompt('Укажите первое число ')),
+        //     y: parseInt(prompt('Укажите второе число ')),
+        //     znak: prompt('Укажите действие')
+        // };
+        obj.x = parseInt(prompt('Укажите первое число '))
+        obj.y= parseInt(prompt('Укажите первое число '))
+        obj.znak = prompt('Укажите действие')
+        this.check(this);
     }
     check() {
         this.x = obj.x;
@@ -20,35 +23,35 @@ class SuperMath {
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
                     console.log(`${this.x / this.y}`);
                 } else {
-                    this.input();
+                    this.input(this);
                 }
                 break
             case '+':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
                     console.log(`${this.x + this.y}`);
                 } else {
-                    this.input();
+                    this.input(this);
                 }
                 break
             case '-':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
                     console.log(`${this.x - this.y}`);
                 } else {
-                    this.input();
+                    this.input(this);
                 }
                 break
             case '*':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
                     console.log(`${this.x * this.y}`);
                 } else {
-                    this.input();
+                    this.input(this);
                 }
                 break
             case '%':
                 if (confirm(`Вы уверены что хотите x${this.znak}y? `) == true) {
                     console.log(`${this.x % this.y}`);
                 } else {
-                    this.input();
+                    this.input(this);
                 }
                 break
         }
