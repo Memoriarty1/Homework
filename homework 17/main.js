@@ -3,7 +3,8 @@ function getValueFromInput(){
     const textareaElem = document.querySelector('textarea')
 
     inputElems.forEach(item => {
-        textareaElem.value += `${item.value}`
+        item.value && (textareaElem.value += `${item.value}`);
+        item.value = ''
     })
 }
 
