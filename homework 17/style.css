@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    margin: 50px 150px
+}
+form {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    margin: 50px 200px
+}
