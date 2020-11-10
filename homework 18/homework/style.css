@@ -1,0 +1,17 @@
+.container {
+    height: 108px;
+    width: 20px;
+    border: 3px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+.green {
+    width: 20px;
+    background-color: green;
+}
+.red {
+    width: 20px;
+    background-color: red;
+}

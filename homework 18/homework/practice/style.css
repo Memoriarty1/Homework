@@ -1,0 +1,6 @@
+.quad {
+    border: 3px solid red;
+    width: 150px;
+    height: 150px;
+    transition: all .0.01s;
+}
