@@ -30,7 +30,7 @@ function SuperMath() {
         }
         for(let key in methods) {
             if(this.znak == key){
-               return console.log( methods[key])
+               return console.log( methods[key]);
             }
         }
     }
