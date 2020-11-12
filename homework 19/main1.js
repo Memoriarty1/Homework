@@ -29,7 +29,6 @@ function doJump(event) {
         let jump = (parseInt(startValue.top) - h)
         player.style.top = jump +'px';
         console.log(jump)
-        // player.style.top =`${h}px`;
         setTimeout(poss, 900);
     }
 }
