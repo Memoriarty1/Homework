@@ -1,72 +1,84 @@
-// document.addEventListener('keydown', function (event) {
-//     console.log(event.key)
 
-//     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-//         console.log('Are you  Ahuel??');
-//     } else if (event.repeat == true) {
-//         alert('POVTOR')
-//     }
-// });
+const player = document.querySelector('.player')
+const startValue = getComputedStyle(player)
 
-// input.onkeydown = function () {
-//     input.addEventListener('onkeydown', check);
-// }
-// function check(key) {
-//     return (key >= '0' && key <= '9') || key == '+' || key == '-' || key == '-' || key == '(' || key == ')' ||
-//         key == 'ArrowLeft' || key == 'ArrowRight' || key == 'Delete' || key == 'Backspace';
-// }
+let playerHeight = player.clientHeight;
+let playerWidth = player.clientWidth;
+let playerX = player.getBoundingClientRect().left;
+let playerY = player.getBoundingClientRect().top;
+let step = 50;
+let h = 100;
+let ctrlFlag = false;
 
-function runOnKeys(func, ...codes) {
-    let pressed = new Set();
-    document.addEventListener('keydown', function (event) {
-        pressed.add(event.code);
-
-        for (let code of codes) {
-            if (!pressed.has(code)) {
-                return;
+document.addEventListener('keydown', doJump);
+document.addEventListener('keydown', sit);
+document.addEventListener('keyup', up);
+document.addEventListener('keydown', (event) => {
+    switch (event.code) {
+        case 'ArrowRight':
+            if (ctrlFlag == false || (ctrlFlag == true && event.repeat)) {
+                moveRight();
             }
-        }
-    
-    pressed.clear();
-    func();
-
+            break;
+        case 'ArrowLeft':
+            if (ctrlFlag == false || (ctrlFlag == true && event.repeat)) {
+                moveLeft();
+            }
+            break
+        case 'ArrowUp':
+            if (ctrlFlag == false) {
+                moveTop();
+            }
+            break
+        case 'ArrowDown':
+            if (ctrlFlag == false) {
+                moveBottom();
+            }
+            break
+    }
 });
-document.addEventListener('keyup', function(event){
-    pressed.delete(event.code)
-})
+
+function moveRight() {
+    playerX = playerX + step;
+    player.style.left = playerX + 'px';
+}
+function moveLeft() {
+    playerX = playerX - step;
+    player.style.left = playerX + 'px';
+}
+function moveTop() {
+    playerY = playerY - step;
+    player.style.top = playerY + 'px';
+}
+function moveBottom() {
+    playerY = playerY + step;
+    player.style.top = playerY + 'px';
+}
+function doJump(event) {
+    if (event.code == 'Space') {
+        player.style.transition = 'all .9s'
+        let jump = playerY - h;
+        player.style.top = jump + 'px';
+        setTimeout(position, 900);
+    }
 }
 
-runOnKeys(()=> alert('hallo pess'), 'KeyW','KeyQ')
-// function runOnKeys(func, ...codes) {
-//     let pressed = new Set();
+function position() {
+    return player.style.top = playerY + 'px';
 
-//     document.addEventListener('keydown', function(event) {
-//       pressed.add(event.code);
+}
+function sit(event) {
+    if (event.ctrlKey) {
+        let sitPosWidth = playerWidth * 1.15
+        let sitPosHeight = playerHeight * 0.6
+        player.style.width = sitPosWidth + 'px'
+        player.style.height = sitPosHeight + 'px'
+        ctrlFlag == true;
+    }
 
-//       for (let code of codes) { // все ли клавиши из набора нажаты?
-//         if (!pressed.has(code)) {
-//           return;
-//         }
-//       }
-
-//       // да, все
-
-//       // во время показа alert, если посетитель отпустит клавиши - не возникнет keyup
-//       // при этом JavaScript "пропустит" факт отпускания клавиш, а pressed[keyCode] останется true
-//       // чтобы избежать "залипания" клавиши -- обнуляем статус всех клавиш, пусть нажимает всё заново
-//       pressed.clear();
-
-//       func();
-//     });
-
-//     document.addEventListener('keyup', function(event) {
-//       pressed.delete(event.code);
-//     });
-
-//   }
-
-//   runOnKeys(
-//     () => alert("Привет!"),
-//     "KeyQ",
-//     "KeyW"
-//   )
+}
+function up() {
+    player.style.height = playerHeight + 'px',
+        player.style.width = playerWidth + 'px'
+    ctrlFlag == false;
+}

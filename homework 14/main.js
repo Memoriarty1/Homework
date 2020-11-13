@@ -4,7 +4,7 @@ function SuperMath() {
         this.x = obj.x;
         this.y = obj.y;
         this.znak = obj.znak;
-        if (confirm(`Вы уверены что хотите ${this.x}${this.znak}${this.y}? `) == true) {
+        if (confirm(`Вы уверены что хотите ${this.x}${this.znak}${this.y}?`) == true) {
             this.toDo(this);
         } else {
             this.input(this);
