@@ -28,11 +28,7 @@ function SuperMath() {
             '-': (this.x - this.y),
             '%': (this.x % this.y)
         }
-        for(let key in methods) {
-            if(this.znak == key){
-               return console.log( methods[key]);
-            }
-        }
+        return console.log(methods[this.znak]);
     }
     obj = {
         x: parseInt(prompt('Укажите первое число ')),

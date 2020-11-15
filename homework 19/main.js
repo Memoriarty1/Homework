@@ -8,30 +8,31 @@ let playerX = player.getBoundingClientRect().left;
 let playerY = player.getBoundingClientRect().top;
 let step = 50;
 let h = 100;
-let ctrlFlag = false;
-
+ctrlFlag = false;
+screenW = screen.width
+screenH = screen.height
 document.addEventListener('keydown', doJump);
 document.addEventListener('keydown', sit);
 document.addEventListener('keyup', up);
 document.addEventListener('keydown', (event) => {
     switch (event.code) {
         case 'ArrowRight':
-            if (ctrlFlag == false || (ctrlFlag == true && event.repeat)) {
+            if (playerX <= screenW - playerWidth -  step ) {
                 moveRight();
             }
             break;
         case 'ArrowLeft':
-            if (ctrlFlag == false || (ctrlFlag == true && event.repeat)) {
+            if (playerX >= step ) {
                 moveLeft();
             }
             break
         case 'ArrowUp':
-            if (ctrlFlag == false) {
+            if (playerY >= step && !ctrlFlag) {
                 moveTop();
             }
             break
         case 'ArrowDown':
-            if (ctrlFlag == false) {
+            if (playerY <= screenH -  2 * playerHeight -  1.5 * step && !ctrlFlag ) {
                 moveBottom();
             }
             break
@@ -55,7 +56,7 @@ function moveBottom() {
     player.style.top = playerY + 'px';
 }
 function doJump(event) {
-    if (event.code == 'Space') {
+    if (event.code == 'Space' && playerY - h >= 0 && !ctrlFlag) {
         player.style.transition = 'all .9s'
         let jump = playerY - h;
         player.style.top = jump + 'px';
