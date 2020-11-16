@@ -8,36 +8,43 @@ let playerX = player.getBoundingClientRect().left;
 let playerY = player.getBoundingClientRect().top;
 let step = 50;
 let h = 100;
-ctrlFlag = false;
-screenW = screen.width
-screenH = screen.height
+
+let screenW = screen.width
+let screenH = screen.height
 document.addEventListener('keydown', doJump);
 document.addEventListener('keydown', sit);
 document.addEventListener('keyup', up);
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', upAndDown);
+document.addEventListener('keydown', leftAndRight);
+
+function upAndDown(event) {
     switch (event.code) {
-        case 'ArrowRight':
-            if (playerX <= screenW - playerWidth -  step ) {
-                moveRight();
-            }
-            break;
-        case 'ArrowLeft':
-            if (playerX >= step ) {
-                moveLeft();
-            }
-            break
         case 'ArrowUp':
-            if (playerY >= step && !ctrlFlag) {
+            if (playerY >= step  ) {
                 moveTop();
             }
             break
         case 'ArrowDown':
-            if (playerY <= screenH -  2 * playerHeight -  1.5 * step && !ctrlFlag ) {
+            if (playerY <= screenH - 2 * playerHeight - 1.5 * step ) {
                 moveBottom();
             }
             break
     }
-});
+};
+function leftAndRight(event) {
+    switch (event.code) {
+        case 'ArrowRight':
+            if (playerX <= screenW - playerWidth - step) {
+                moveRight();
+            }
+            break;
+        case 'ArrowLeft':
+            if (playerX >= step) {
+                moveLeft();
+            }
+            break
+    }
+}
 
 function moveRight() {
     playerX = playerX + step;
@@ -56,8 +63,7 @@ function moveBottom() {
     player.style.top = playerY + 'px';
 }
 function doJump(event) {
-    if (event.code == 'Space' && playerY - h >= 0 && !ctrlFlag) {
-        player.style.transition = 'all .9s'
+    if (event.code == 'Space' && playerY - h >= 0 ) {
         let jump = playerY - h;
         player.style.top = jump + 'px';
         setTimeout(position, 900);
@@ -65,7 +71,7 @@ function doJump(event) {
 }
 
 function position() {
-    return player.style.top = playerY + 'px';
+    player.style.top = playerY + 'px';
 
 }
 function sit(event) {
@@ -74,12 +80,17 @@ function sit(event) {
         let sitPosHeight = playerHeight * 0.6
         player.style.width = sitPosWidth + 'px'
         player.style.height = sitPosHeight + 'px'
-        ctrlFlag == true;
+        document.addEventListener('keydown', leftAndRight);
+        document.removeEventListener('keydown', upAndDown);
+        document.removeEventListener('keydown', doJump);
+
     }
 
 }
 function up() {
-    player.style.height = playerHeight + 'px',
-        player.style.width = playerWidth + 'px'
-    ctrlFlag == false;
+    player.style.height = playerHeight + 'px'
+    player.style.width = playerWidth + 'px'
+    document.addEventListener('keydown', upAndDown);
+    document.addEventListener('keydown', leftAndRight);
+    document.addEventListener('keydown', doJump);
 }
