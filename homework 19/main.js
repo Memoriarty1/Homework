@@ -69,7 +69,6 @@ function doJump(event) {
         setTimeout(position, 900);
     }
 }
-
 function position() {
     player.style.top = playerY + 'px';
 

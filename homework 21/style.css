@@ -1,0 +1,12 @@
+.counter1, .counter2 {
+ display: flex;
+ align-items: center;
+ flex-direction: row;
+ border: 1px solid red;
+ width: 150px;
+}
+.content-numb2, .content-numb1 {
+    margin-left : 20px;
+    min-width:  15px;
+    max-width:  50px;
+}

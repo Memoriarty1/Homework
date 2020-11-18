@@ -45,7 +45,6 @@ window.onload = function () {
         items.forEach(({ title, handler }) => {
 
             const li = document.createElement('button')
-            li.classList.add()
             console.log(title)
             li.innerText = title;
             li.addEventListener('click', this.actions[handler])
@@ -56,17 +55,6 @@ window.onload = function () {
         return fragment
     };
 
-    MenuComponent.prototype.buttonsOn = function (li) {
-
-    }
-    MenuComponent.prototype.makeMenu = function () {
-        const container = this.makeContainer();
-        console.log(this.makeContainer(), 'thismakecont');
-        const items = this.makeItems();
-        container.append(items)
-        this.container = container
-        return this;
-    }
     MenuComponent.prototype.render = function () {
         if (this.container) {
             document.body.append(this.container)
