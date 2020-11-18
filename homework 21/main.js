@@ -12,11 +12,9 @@ window.onload = function () {
     goOnParsed();
 
     function setCounter() {
-        let id = prompt("Укажите id блока ");
-        let myValue = +prompt("Укажите число ");
         if (typeof localStorage.getItem('obj') === 'string') {
             const parsed = JSON.parse(localStorage.getItem('obj'));
-            parsed[id] = myValue;
+            parsed[prompt("Укажите id блока ")] = +prompt("Укажите число ");
             localStorage.setItem('obj', JSON.stringify(parsed));
         }
     }
@@ -52,4 +50,4 @@ window.onload = function () {
         });
         localStorage.setItem('obj', JSON.stringify(obj));
     }
-}
+};
