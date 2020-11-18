@@ -4,7 +4,7 @@ window.onload = function () {
         if (button.id === 'buttons') {
             button.addEventListener('click', counter);
         } else if(button.id === 'button-cleaner') {
-            button.addEventListener('click', clearCountup);
+            button.addEventListener('click', clearCounters);
         }
     });
     goOnParsed();
@@ -19,7 +19,7 @@ window.onload = function () {
         }
     }
 
-    function clearCountup() {
+    function clearCounters() {
         localStorage.removeItem('obj');
     }
 
@@ -33,7 +33,7 @@ window.onload = function () {
     function sirializeFrom(form) {
         let obj = {};
         [].forEach.call(form, element => {
-            if (typeof element.id === 'string' && element.id != 'buttons', 'button-cleaner') {
+            if (typeof element.id === 'string' && element.id != 'buttons' && element.id !='button-cleaner') {
                 obj[element.id] = element.value;
             }
         });
