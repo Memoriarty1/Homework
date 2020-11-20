@@ -8,7 +8,6 @@ function SuperMath() {
             this.toDo(this);
         } else {
             this.input(this);
-
         }
     }
 }
