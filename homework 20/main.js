@@ -31,18 +31,12 @@ window.onload = function () {
     }
     MenuComponent.prototype.makeContainer = function () {
         const container = document.createElement('div');
-        container.style.visibility = 'visible';
+        container.style.visibility = 'hidden';
         container.classList.add(this.config.type || 'row');
-        document.addEventListener('click', function(event){
-            container.style.visibility = 'hidden';
-            event.preventDefault();
-        })
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-            container.style.visibility = 'hidden';
-        });
-        return container;
+
+        return container
     };
+
     MenuComponent.prototype.makeItems = function () {
         const { items } = this.config;
         const fragment = document.createDocumentFragment()
@@ -60,28 +54,33 @@ window.onload = function () {
         const items = this.makeItems();
         container.append(items);
         this.container = container;
+        console.log(this, 'this makemnuj')
         return this;
-    }
-    MenuComponent.prototype.render = function (event) {
+    };
+    MenuComponent.prototype.render = function () {
         if (this.container) {
-            let x = event.clientX;
-            let y = event.clientY;
-            this.container.style.left = `${x}px`;
-            this.container.style.top = `${y}px`;
             document.body.append(this.container);
         }
         return this
-    }
+    };
 
+    MenuComponent.prototype.bindEvent = function () {
+            const boxHide = this.container;
+            document.addEventListener('contextmenu', function (event) {
+                boxHide.style.visibility = 'visible';
+                boxHide.style.left = `${event.pageX}px`
+                boxHide.style.top = `${event.pageY}px`
+                event.preventDefault();
+            });
+            document.addEventListener('click', function (event) {
+                boxHide.style.visibility = 'hidden';
+            });
+        
+    };
     const menu = new MenuComponent(contextmenu, actions);
-
-    document.addEventListener('contextmenu',function(event) {
-        menu
-        .makeMenu()
-        .render(event);
-        event.preventDefault();
-   
-    });
+    menu.makeMenu()
+        .render()
+        .bindEvent()
 
 
 };
