@@ -1,8 +1,9 @@
 
 const promise = new Promise((res, rej) => {
-    const kek = true;
-    (kek) ? res(kek) : rej(kek);
-    console.log(0)
+    const choice = true;
+    console.log(0);
+    (choice) ? res(choice) : rej(choice);
+    
 })
 
 promise
