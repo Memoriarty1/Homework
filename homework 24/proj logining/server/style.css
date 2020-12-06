@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+form { 
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    border: 1px solid red;
+    position: fixed;
+    transition: left .5s;
+}
