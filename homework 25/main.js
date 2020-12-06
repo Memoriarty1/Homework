@@ -9,32 +9,31 @@ const promise = new Promise((res, rej) => {
 promise
     .then(
         (res) => {
-            console.log(1)
+            console.log(1);
             return res
         },
         (rej) => {
-            console.log(2)
+            console.log(2);
             return rej
         }
     )
     .then(
         (res) => {
-            console.log(3)
+            console.log(3);
             return Promise.reject(res)
         },
         (rej) => {
-            console.log(4)
+            console.log(4);
             return rej
         }
     )
     .then(
         (res) => {
-            console.log(5)
+            console.log(5);
             return res
         },
         (rej) => {
-            console.log(6)
-
+            console.log(6);
             if (rej) {
                 return Promise.reject(rej)
             }
@@ -42,21 +41,21 @@ promise
     )
     .then(
         (res) => {
-            console.log(7)
+            console.log(7);
             return res
         },
         (rej) => {
-            console.log(8)
+            console.log(8);
             return rej
         }
     )
     .then(
         (res) => {
-            console.log(9)
+            console.log(9);
             return Promise.reject(res)
         },
         (rej) => {
-            console.log(10)
+            console.log(10);
             return rej
         }
     )
