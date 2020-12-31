@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .diagrams {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 1px solid black;
+    padding: 20px;
+    min-height: 400px;
+  }
+  
+  .column {
+    border: 1px solid black;
+  }
+  
+  .blue {
+    background-color: blue;
+  }
+  
+  .black {
+    background-color: black;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .yellow {
+    background-color: yellow;
+  }
+  
+  .orange {
+    background-color: orange;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .grey {
+    background-color: grey;
+  }
+  
+  .sort_btn {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 30%;
+    font-size: 1.2rem;
+  }
+  
+  /* Animations */
+  
+  .list-move {
+    transition: all 1s ease;
+  }
